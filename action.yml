@@ -1,7 +1,12 @@
 name: 'Spellchecker CLI'
 description: 'Spellcheck files in your repository.'
+inputs:
+  files:
+    description: "A list of files or globs to spellcheck, separated by spaces."
+    required: true
+    default: "**/*.txt **/*.md"
 runs:
   using: "composite"
   steps:
-    - run: npx spellchecker-cli
+    - run: npx -y spellchecker-cli --files ${{ inputs.files }}
       shell: bash
