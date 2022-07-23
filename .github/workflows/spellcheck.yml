@@ -11,3 +11,5 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: tbroadley/spellchecker-cli-action@v1
+        with:
+          dictionaries: "dictionary.txt"
