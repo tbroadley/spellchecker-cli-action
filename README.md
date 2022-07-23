@@ -2,6 +2,10 @@
 
 Run [Spellchecker CLI](https://github.com/tbroadley/spellchecker-cli) in GitHub Actions workflows.
 
+## Use Case
+
+Catch spelling mistakes in your open-source software project's documentation as part of its continuous integration process.
+
 ## Usage
 
 Here is an example workflow definition. It uses `actions/checkout` to check out your repository's code, then `tbroadley/spellchecker-cli-action` to spellcheck it.
