@@ -8,7 +8,6 @@ Here is an example workflow definition that uses `actions/checkout` and this rep
 
 ```yaml
 on: push
-
 jobs:
   spellcheck:
     runs-on: ubuntu-latest
