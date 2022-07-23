@@ -1,0 +1,7 @@
+name: 'Spellchecker CLI'
+description: 'Spellcheck files in your repository.'
+runs:
+  using: "composite"
+  steps:
+    - run: npx spellchecker-cli
+      shell: bash
