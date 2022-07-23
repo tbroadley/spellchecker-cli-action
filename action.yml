@@ -13,6 +13,6 @@ runs:
   steps:
     - run: >
         npx -y spellchecker-cli
-          --files ${{ inputs.files }}
-          ${{ github.events.inputs.dictionaries != '' && format('--dictionaries {0}', github.events.inputs.dictionaries) || '' }}
+        --files ${{ inputs.files }}
+        ${{ inputs.dictionaries != '' && format('--dictionaries {0}', inputs.dictionaries) || '' }}
       shell: bash
