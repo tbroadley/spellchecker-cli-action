@@ -1,5 +1,5 @@
-name: 'Spellchecker CLI'
-description: 'Spellcheck files in your repository.'
+name: "Spellchecker CLI"
+description: "Spellcheck files in your repository."
 inputs:
   files:
     description: "A list of files or globs to spellcheck, separated by spaces."
@@ -12,7 +12,7 @@ runs:
   using: "composite"
   steps:
     - run: >
-        npx -y spellchecker-cli
+        npx -y spellchecker-cli@^5
         --files ${{ inputs.files }}
         ${{ inputs.dictionaries != '' && format('--dictionaries {0}', inputs.dictionaries) || '' }}
       shell: bash
