@@ -12,7 +12,7 @@ runs:
   using: "composite"
   steps:
     - run: >
-        npx -y spellchecker-cli@^5
+        npx -y spellchecker-cli@^6
         --files ${{ inputs.files }}
         ${{ inputs.dictionaries != '' && format('--dictionaries {0}', inputs.dictionaries) || '' }}
       shell: bash
