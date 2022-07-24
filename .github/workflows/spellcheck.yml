@@ -13,3 +13,4 @@ jobs:
       - uses: tbroadley/spellchecker-cli-action@v1
         with:
           dictionaries: "dictionary.txt"
+          quiet: true
