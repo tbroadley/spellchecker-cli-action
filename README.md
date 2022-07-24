@@ -36,8 +36,8 @@ See [Spellchecker CLI](https://github.com/tbroadley/spellchecker-cli) for more d
 | `noSuggestions`   | Do not print suggested replacements for misspelled words. This option will improve Spellchecker CLI's runtime when many errors are detected.              | false     | `false`                                                                               |
 | `quiet`           | Do not output anything for files that contain no spelling mistakes.                                                                                       | false     | `false`                                                                               |
 | `frontmatterKeys` | An array of frontmatter keys whose values should be spellchecked. By default, no values are spellchecked. Only valid when the frontmatter plugin is used. | false     | `[]`                                                                                  |
-| `reports`         | An array of report files to generate. The type of the report is based on the extension of the file. (Supported: .junit.xml and .json)                     | false     |                                                                                       |
-| `config`          | A path to a config file.                                                                                                                                  | false     |                                                                                       |
+| `reports`         | An array of report files to generate. The type of the report is based on the extension of the file. (Supported: .junit.xml and .json)                     | false     | `[]`                                                                                  |
+| `config`          | A path to a config file.                                                                                                                                  | false     | `''`                                                                                  |
 
 Here's an example that uses inputs:
 
