@@ -1,7 +1,9 @@
 name: "Spellchecker CLI"
 description: "Spellcheck files in your repository."
-icon: file-text
-color: yellow
+
+branding:
+  icon: file-text
+  color: yellow
 
 inputs:
   files:
