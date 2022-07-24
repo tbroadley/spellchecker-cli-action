@@ -8,7 +8,7 @@ branding:
 inputs:
   files:
     description: "A list of files or globs to spellcheck, separated by spaces."
-    required: true
+    required: false
     default: "**/*.txt **/*.md"
   language:
     description: "The language of the files. The default language is en-US. See Spellchecker CLI for details about which languages are supported."
@@ -47,13 +47,13 @@ runs:
         npx -y spellchecker-cli@^6
         --files ${{ inputs.files }}
         ${{ inputs.language != '' && format('--language {0}', inputs.language) || '' }}
-        ${{ inputs.dictionaries != '' && format('--dictionaries {0}', inputs.dictionaries) || '' }}
+        ${{ inputs.dictionaries != '' && format('--dictionaries {0}', join(inputs.dictionaries, ' ')) || '' }}
         ${{ inputs.noGitignore && '--no-gitignore' || '' }}
-        ${{ inputs.ignore != '' && format('--ignore {0}', inputs.ignore) || '' }}
-        ${{ inputs.plugins != '' && format('--plugins {0}', inputs.plugins) || '' }}
+        ${{ inputs.ignore != '' && format('--ignore {0}', join(inputs.ignore, ' ')) || '' }}
+        ${{ inputs.plugins != '' && format('--plugins {0}', join(inputs.plugins, ' ')) || '' }}
         ${{ inputs.noSuggestions && '--no-suggestions' || '' }}
         ${{ inputs.quiet && '--quiet' || '' }}
-        ${{ inputs.frontmatterKeys != '' && format('--frontmatter-keys {0}', inputs.frontmatterKeys) || '' }}
+        ${{ inputs.frontmatterKeys != '' && format('--frontmatter-keys {0}', join(inputs.frontmatterKeys, ' ')) || '' }}
         ${{ inputs.reports != '' && format('--reports {0}', inputs.reports) || '' }}
         ${{ inputs.config != '' && format('--config {0}', inputs.config) || '' }}
       shell: bash
