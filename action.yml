@@ -5,14 +5,50 @@ inputs:
     description: "A list of files or globs to spellcheck, separated by spaces."
     required: true
     default: "**/*.txt **/*.md"
+  language:
+    description: "The language of the files. The default language is en-US. See Spellchecker CLI for details about which languages are supported."
+    required: false
   dictionaries:
     description: "A list of files to combine into a personal dictionary, separated by spaces."
+    required: false
+  noGitignore:
+    description: "Don't respect ignore files (.gitignore, .ignore, etc)."
+    required: false
+  ignore:
+    description: "A list of regexes, separated by spaces. Spelling mistakes that match any of these regexes (after being wrapped with ^ and $) will be ignored."
+    required: false
+  plugins:
+    description: "A list of retext plugins to use. See Spellchecker CLI for details about default and available plugins."
+    required: false
+  noSuggestions:
+    description: "Do not print suggested replacements for misspelled words. This option will improve Spellchecker CLI's runtime when many errors are detected."
+    required: false
+  quiet:
+    description: "Do not output anything for files that contain no spelling mistakes."
+    required: false
+  frontmatterKeys:
+    description: "A list of frontmatter keys whose values should be spellchecked. By default, no values are spellchecked. Only valid when the frontmatter plugin is used."
+    required: false
+  reports:
+    description: "A list of report files to generate, separated by spaces. The type of the report is based on the extension of the file. (Supported: .junit.xml and .json)"
+    required: false
+  config:
+    description: "A path to a config file."
     required: false
 runs:
   using: "composite"
   steps:
     - run: >
-        npx -y spellchecker-cli@^5
+        npx -y spellchecker-cli@^6
         --files ${{ inputs.files }}
+        ${{ inputs.language != '' && format('--language {0}', inputs.language) || '' }}
         ${{ inputs.dictionaries != '' && format('--dictionaries {0}', inputs.dictionaries) || '' }}
+        ${{ inputs.noGitignore && '--no-gitignore' || '' }}
+        ${{ inputs.ignore != '' && format('--ignore {0}', inputs.ignore) || '' }}
+        ${{ inputs.plugins != '' && format('--plugins {0}', inputs.plugins) || '' }}
+        ${{ inputs.noSuggestions && '--no-suggestions' || '' }}
+        ${{ inputs.quiet && '--quiet' || '' }}
+        ${{ inputs.frontmatterKeys != '' && format('--frontmatter-keys {0}', inputs.frontmatterKeys) || '' }}
+        ${{ inputs.reports != '' && format('--reports {0}', inputs.reports) || '' }}
+        ${{ inputs.config != '' && format('--config {0}', inputs.config) || '' }}
       shell: bash
