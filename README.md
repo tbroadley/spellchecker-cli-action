@@ -46,6 +46,6 @@ Here's an example that uses inputs:
   with:
     files:
       - **/*.md
-      - !build/*.md
+      - "!build/*.md"
     quiet: true
 ```
