@@ -1,0 +1,17 @@
+name: "Validate action.yml"
+
+on:
+  pull_request:
+    branches: master
+  push:
+    branches: master
+
+jobs:
+  validate-action-yml:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: mpoc/nexus-validate-using-remote-schema-action@main
+        with:
+          api-endpoint: "https://json.schemastore.org/github-action.json"
+          yaml-file: "action.yml"
