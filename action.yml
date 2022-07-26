@@ -7,9 +7,6 @@ branding:
 
 inputs:
   files:
-    description: "A list of files or globs to spellcheck, separated by spaces."
-    required: false
-    default: "**/*.txt **/*.md"
   language:
     description: "The language of the files. The default language is en-US. See Spellchecker CLI for details about which languages are supported."
     required: false
