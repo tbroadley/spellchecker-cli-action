@@ -7,9 +7,8 @@ on:
     branches: master
 
 jobs:
-  spellcheck:
+  validate-action-yml:
     runs-on: ubuntu-latest
-    name: Spellcheck
     steps:
       - uses: actions/checkout@v3
       - uses: mpoc/nexus-validate-using-remote-schema-action@main
