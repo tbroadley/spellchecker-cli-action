@@ -44,8 +44,6 @@ Here's an example that uses inputs:
 ```yaml
 - uses: tbroadley/spellchecker-cli-action@v1
   with:
-    files:
-      - **/*.md
-      - "!build/*.md"
+    files: "**/*.md !build/*.md"
     quiet: true
 ```
