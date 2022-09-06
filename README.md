@@ -1,6 +1,8 @@
 # Spellchecker CLI Action
 
-Run [Spellchecker CLI](https://github.com/tbroadley/spellchecker-cli) in GitHub Actions workflows.
+A simple, customizable wrapper around [Spellchecker CLI](https://github.com/tbroadley/spellchecker-cli) for GitHub Actions workflows.
+
+Check out [Spellchecker CLI Summary](https://github.com/marketplace/actions/spellchecker-cli-summary) for a full-featured Spellchecker CLI workflow that can leave comments and status checks on your PRs.
 
 ## Use Case
 
